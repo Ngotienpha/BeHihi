@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebBaoDoi.Models.Submission>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>List Submission</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateField)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateField2)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) 
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateField)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateField2)
+            </td>
+            <td>
+                <a asp-action="Index" asp-route-id="@item.Id" asp-controller="Idea" class="btn btn-warning">View Ideas</a> |
+                <a href="/export" class="btn btn-primary">Export ZIP</a> |
+                <a asp-action="Export Excel" asp-route-id="@item.Id" class="btn btn-danger">Export Excel</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

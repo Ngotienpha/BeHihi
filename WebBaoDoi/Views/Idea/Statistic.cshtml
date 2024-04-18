@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Statistic";
+    var ideaByFaculty = (List<KeyValuePair<string, int>>)ViewData["ideaByFaculty"];
+}
+
+<table class="table">
+    <tr>
+        <th>Faculty</th>
+        <th>Number of Ideas</th>
+    </tr>
+
+    @if (ideaByFaculty != null)
+    {
+        foreach (var item in ideaByFaculty)
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td colspan="2">No data available</td>
+        </tr>
+    }
+</table>
